@@ -5,7 +5,7 @@
 #include "date.h"
 #include <string>
 #include <fstream>
-#include <stack>
+#include <queue>
 #include <vector>
 
 using namespace std;
@@ -19,26 +19,28 @@ int main()
 
     // stack s{x.begin() + 1, x.begin()+ 4};
 
-    stack<string> s;
+    queue<string> q;
 
     for(size_t i = 0; i < 10; i++)
     {
         auto name = rname();
         cout << name << " ";
 
-        s.push(name);
+        q.push(name);
     }
-    cout << "stack de " << s.size() << " oge var\n";
+    cout << "kuyruk da " << q.size() << " oge var\n";
 
-    while(!s.empty())
+    cout << "kuyruk basi " << q.front() << "\n";
+    cout << "kuyruk sonu " << q.back() << "\n";
+
+    q.front() += "can";
+    q.back() += "kan";
+
+    while(!q.empty())
     {
-        std::cout << s.top() << '\n';
-
-        s.pop();
-
+        std::cout << q.front() << '\n';
+        q.pop();
     }
-
-
 
     cout << "\n-------------------------------\n";
     return 0;
